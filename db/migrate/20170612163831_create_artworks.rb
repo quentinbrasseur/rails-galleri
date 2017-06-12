@@ -5,7 +5,7 @@ class CreateArtworks < ActiveRecord::Migration[5.0]
       t.string :type
       t.string :size
       t.string :location
-      t.references :user, foreign_key: true, index: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
