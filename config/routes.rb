@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :appointments, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
+    #resources :doses, only: [:new, :create]
+  end
 
-  get 'appointments/index'
 
-  get 'appointments/show'
 
-  get 'appointments/new'
 
-  get 'appointments/create'
-
-  get 'appointments/edit'
-
-  get 'appointments/update'
-
-  get 'appointments/destroy'
 
   devise_for :users
 

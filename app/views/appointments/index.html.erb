@@ -1,2 +1,27 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<h1 class="text-center">Your appointment list</h1>
+
+<div class="text-center padded">
+  <%= link_to "Create a appointment", appointments_new_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @appointments.each do |appointment| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card text-center">
+
+          <% if appointment.picture %>
+            <div class="card-header" style="background-image: url('<%= image_path appointment.picture%>')">
+            </div>
+          <% else %>
+            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-appointment-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+            </div>
+          <% end %>
+          <div class="card-body">
+            <%= link_to appointment.name, appointments_show_path(appointment) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
