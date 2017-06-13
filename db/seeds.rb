@@ -14,24 +14,28 @@ User.destroy_all
 quentin = User.new(
   name: "quentin",
   email: "quentin@quentin.com",
+  password: "password",
   phone_number: "06 16 28 83 97")
 quentin.save!
 
 kilian = User.new(
   name: "kilian",
   email: "kilian@kilian.com",
+  password: "password",
   phone_number: "06 19 20 13 37")
 kilian.save!
 
 cedric = User.new(
   name: "cedric",
   email: "cedric@cedric.com",
+  password: "password",
   phone_number: "06 10 22 93 90")
 cedric.save!
 
 joe = User.new(
   name: "joe",
   email: "joe@joe.com",
+  password: "password",
   phone_number: "06 06 20 81 37")
 joe.save!
 
