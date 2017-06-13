@@ -1,7 +1,7 @@
 <h1 class="text-center">Your appointment list</h1>
 
 <div class="text-center padded">
-  <%= link_to "Create a appointment", appointments_new_path, class: "btn btn-primary" %>
+  <%= link_to "Create a appointment", new_appointment_path, class: "btn btn-primary" %>
 </div>
 
 <div class="container">
@@ -18,7 +18,7 @@
             </div>
           <% end %>
           <div class="card-body">
-            <%= link_to appointment.name, appointments_show_path(appointment) %>
+            <%= link_to appointment.name, appointment_path(appointment) %>
           </div>
         </div>
       </div>

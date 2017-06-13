@@ -1,0 +1,5 @@
+<%= simple_form_for(@appointment) do |f| %>
+  <%= f.input :date_start, placeholder: "Start Date" %>
+  <%= f.input :date_end, placeholder: "End Date" %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
