@@ -1,0 +1,18 @@
+<h1 class="text-center" style="margin: 40px">My list of artworks</h1>
+
+<div class="container">
+  <div class="row">
+    <% @artworks.each do |artwork| %>
+      <%= artwork.title %>
+      <%= artwork.id %>
+      <%= link_to "Details", artwork %>
+      <br>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+
+<%= link_to "Home", homepage_path %>
+<%= link_to "Create", new_artwork_path %>
+
