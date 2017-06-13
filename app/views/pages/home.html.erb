@@ -3,14 +3,8 @@
 
 
 
-<%= link_to "Log In", new_user_session_path %>
 
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
-<% if user_signed_in? %>
-  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-  <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-<% end %>
 
 <br>
 <%= link_to "Artworks", artworks_path %>
