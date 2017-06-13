@@ -12,13 +12,7 @@
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
 
-          <% if appointment.picture %>
-            <div class="card-header" style="background-image: url('<%= image_path appointment.picture%>')">
-            </div>
-          <% else %>
-            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-appointment-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
-            </div>
-          <% end %>
+          An appointment
           <div class="card-body">
             <%= link_to appointment.name, appointment_path(appointment) %>
           </div>
