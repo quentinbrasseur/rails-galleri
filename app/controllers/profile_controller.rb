@@ -19,8 +19,8 @@ class ProfileController < ApplicationController
 
   private
 
-  def artwork_params
-    params.require(:artwork).permit(:address, :phone_number)
+  def user_params
+    params.require(:user).permit(:address, :phone_number)
   end
 
 end
