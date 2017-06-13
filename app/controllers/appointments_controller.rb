@@ -8,18 +8,18 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-     @artwork = Artwork.find(params[:artwork_id])
-     @appointment = Appointment.new
+     # @artwork = Artwork.find(params[:artwork_id])
+     # @appointment = Appointment.new
   end
 
   def create
-    raise
-    @appointment = Appointment.new(appointment_params)
-    if @appointment.save
-      redirect_to appointment_path(@appointment)
-    else
-      render :new
-    end
+    # raise
+    # @appointment = Appointment.new(appointment_params)
+    # if @appointment.save
+    #   redirect_to appointment_path(@appointment)
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -32,5 +32,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
     redirect_to homepage_path
+  end
+   def appointment_params
+    params.require(:appointment).permit(:start_date, :end
+      )
   end
 end
