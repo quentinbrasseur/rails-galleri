@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :appointments, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     #resources :doses, only: [:new, :create]
   end
-
+  resources :artworks do
+      resources :appointments, only: [:new,:create]
+  end
 
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
