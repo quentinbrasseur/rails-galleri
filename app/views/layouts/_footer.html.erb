@@ -1,17 +1,49 @@
- <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4">
-            <ul class="list-inline">
-              <li><a href=""><i class="fa fa-youtube"></i></a></li>
-              <li><a href=""><i class="fa fa-instagram"></i></a></li>
-              <li><a href=""><i class="fa fa-facebook"></i></a></li>
-              <li><a href=""><i class="fa fa-twitter"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-xs-8 text-right">
-            <p>This platform was developed by Joe, Kilian, Quentin and Cédric</p>
+    <div id="footer">
+      <div class = "container">
+        <div class="list-inline unstyled">
+
+              <div class="col-md-4">
+               <h4 class="heading_tpbrp">Join Us</h4>
+                <div>
+                  <li>
+                  <%= link_to "Contacts", homepage_path %>
+                  </li>
+                  <li>
+                  <%= link_to "Careers", homepage_path %>
+                  </li>
+                  <li>
+                  <%= link_to "FAQ", homepage_path %>
+                  </li>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+               <h4 class="heading_tpbrp">Artist</h4>
+                <div>
+                  <li>
+                  <%= link_to "Become an artist", homepage_path %>
+                  </li>
+                  <li>
+                  <%= link_to "All the artists", homepage_path %>
+                  </li>
+                </div>
+              </div>
+              <div class="col-md-4">
+              <h4 class="heading_tpbrp">About us</h4>
+                <div>
+                  <li>
+                  <%= link_to "Facebook", homepage_path %>
+                  </li>
+                  <li>
+                  <%= link_to "Instagram", homepage_path %>
+                  </li>
+                  <li>
+                  <%= link_to "Press", homepage_path %>
+                  </li>
+                </div>
+              </div>
           </div>
         </div>
       </div>
-    </div>
+
+
