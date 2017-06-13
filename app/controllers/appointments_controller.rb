@@ -34,7 +34,6 @@ class AppointmentsController < ApplicationController
     redirect_to homepage_path
   end
    def appointment_params
-    params.require(:appointment).permit(:start_date, :end
-      )
+    params.require(:appointment).permit(:start_date, :end)
   end
 end
