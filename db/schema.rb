@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612164538) do
+ActiveRecord::Schema.define(version: 20170613093349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170612164538) do
 
   create_table "artworks", force: :cascade do |t|
     t.string   "title"
-    t.string   "type"
+    t.string   "category"
     t.string   "size"
     t.string   "location"
     t.integer  "user_id"
@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(version: 20170612164538) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "phone_number"
   end
 
-  add_foreign_key "appointments", "artworks"
+  add_foreign_key "appointments", "artworks", on_delete: :cascade
   add_foreign_key "appointments", "users"
   add_foreign_key "artworks", "users"
 end

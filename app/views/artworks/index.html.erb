@@ -1,0 +1,11 @@
+<h1 class="text-center" style="margin: 40px">My list of artworks</h1>
+
+<div class="container">
+  <div class="row">
+    <% @artworks.each do |artwork| %>
+      <%= artwork.title %>
+      <br>
+    <% end %>
+  </div>
+</div>
+
