@@ -4,8 +4,15 @@
   <div class="row">
     <% @artworks.each do |artwork| %>
       <%= artwork.title %>
+      <%= artwork.id %>
+      <%= link_to "Details", artwork %>
       <br>
     <% end %>
   </div>
 </div>
+<br>
+<br>
+
+<%= link_to "Home", homepage_path %>
+<%= link_to "Create", new_artwork_path %>
 

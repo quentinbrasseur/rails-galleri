@@ -8,7 +8,7 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    @artwork = Artwork.new
+    @artwork = Artwork.new(artwork_params)
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
@@ -21,12 +21,20 @@ class ArtworksController < ApplicationController
   end
 
   def edit
+    @artwork = Artwork.find(params[:id])
   end
 
   def update
+    @artwork = Artwork.find(params[:id])
+    if @artwork.update(artwork_params)
+      redirect_to artwork_path(@artwork)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @artwork = Artwork.find(params[:id])
     @artwork.destroy
     redirect_to artworks_path
   end
