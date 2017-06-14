@@ -1,2 +1,16 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>Congratulations!</h1>
+
+            <%= @appointment.user.email  %>  You just booked:
+            <br>
+            <%= @appointment.artwork.title  %>
+            <br>
+            <p>from:</p>
+             <%= @appointment.start_date  %>
+              <br>
+              <p>To:</p>
+              <%= @appointment.end_date  %>
+
+
+
+
+<%= link_to "Browse some more!", homepage_path, class: "btn btn-primary" %>
