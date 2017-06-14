@@ -5,22 +5,30 @@
 
 
           <div class="card-body">
-           Congratulations,
+
+<%= link_to appointment.artwork.title, appointment_path(appointment.id), class: "btn btn-primary" %>
+<br>
             <%= appointment.user.email  %>!  You just booked:
             <br>
             <%= appointment.artwork.title  %>
+            <%= appointment.id  %>
             <br>
              <%= appointment.start_date  %>
               <br>
               <%= appointment.end_date  %>
               <br>
               <br>
+    <%= link_to "Delete Booking", appointment_path(appointment.id), class: "btn btn-primary",
+              method: :delete,
+              data: { confirm: "are you sure" } %></h3>
+         <%= link_to "Edit Booking", edit_appointment_path(appointment.id), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
 
-
+<br>
+<br>
 <div class="text-center padded">
   <%= link_to "Browse some more!", homepage_path, class: "btn btn-primary" %>
 </div>
