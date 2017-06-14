@@ -3,6 +3,26 @@
 <h2 class="text-center" style="margin: 40px"><%= @user.email %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @user.phone_number %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @user.address %></h2>
+<h1 class="text-center">Your appointment list</h1>
+ <% @appointments.each do |appointment| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card text-center">
 
+
+          <div class="card-body">
+           Congratulations,
+            <%= appointment.user.email  %>!  You just booked:
+            <br>
+            <%= appointment.artwork.title  %>
+            <br>
+             <%= appointment.start_date  %>
+              <br>
+              <%= appointment.end_date  %>
+              <br>
+              <br>
+          </div>
+        </div>
+      </div>
+    <% end %>
 <%= link_to "Edit", edit_user_path %>
 <%= link_to "Show My Bookings!!", appointments_path %>
