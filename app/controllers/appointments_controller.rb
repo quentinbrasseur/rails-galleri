@@ -21,6 +21,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.artwork = @artwork
     @appointment.user = current_user
+@appointment.start_date = DateTime.strptime(appointment_params[:start_date], '%m/%d/%Y')
+    @appointment.end_date = DateTime.strptime(appointment_params[:end_date], '%m/%d/%Y')
+
     @appointment.save
 
 
@@ -40,7 +43,12 @@ class AppointmentsController < ApplicationController
   def update
 
     @appointment = Appointment.find(params[:id])
+
     @appointment.update(appointment_params)
+    @appointment.start_date = DateTime.strptime(appointment_params[:start_date], '%m/%d/%Y')
+    @appointment.end_date = DateTime.strptime(appointment_params[:end_date], '%m/%d/%Y')
+    @appointment.save
+
 
     redirect_to appointment_path(@appointment)
 
