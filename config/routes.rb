@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # To let the user upload photos
+  mount Attachinary::Engine => "/attachinary"
+
   resources :appointments, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     #resources :doses, only: [:new, :create]
   end
@@ -19,4 +22,5 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :artworks
-end
+
+  end
