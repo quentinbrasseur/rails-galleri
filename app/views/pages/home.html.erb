@@ -1,12 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(https://static.pexels.com/photos/428111/pexels-photo-428111.jpeg);">
 
+  <div class="banner-content">
+    <h1>Art you space</h1>
+    <p>Show arts from local artist</p>
+    <p>and experience arts you like for FREE</p>
+  </div>
 
+  <div class="search-bar">
+    <form class="form-inline">
+      <label class="sr-only" for="inlineFormInput">City</label>
+      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
 
+      <label class="sr-only" for="inlineFormInputGroup">Art</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
+      </div>
 
+      <label class="sr-only" for="inlineFormInputGroup">When</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="When">
+      </div>
 
+      <button type="submit" class="btn btn-primary"><%= link_to "Artworks", search_path %></button>
+      <p></p>
+
+    </form>
+  </div>
+</div>
 
 <br>
-<%= link_to "Artworks", artworks_path %>
 
-<%= link_to "My Profile", user_path(@user) %>
+<div class="overview" style="text-align: center;">
+  <h2>Explore the art</h2>
+</div>
+
+<br>
+

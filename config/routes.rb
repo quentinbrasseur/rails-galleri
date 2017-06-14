@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
+
 
   resources :appointments, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     #resources :doses, only: [:new, :create]
@@ -14,9 +16,7 @@ Rails.application.routes.draw do
 
   # Do you really need this one???
   get "homepage" , to: "pages#home"
-
-  root to: "pages#home"
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :artworks
+  get "search", to: 'artworks#search'
 end
+
