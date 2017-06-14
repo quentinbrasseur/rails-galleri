@@ -11,6 +11,12 @@
               <%= @appointment.end_date  %>
 
 
+<%= link_to "Modify this Appointment", edit_appointment_path, class: "btn btn-primary" %>
 
+<%= link_to "Delete", appointment_path(@appointment), class: "btn btn-primary",
+              method: :delete,
+              data: { confirm: "are you sure" } %></h3>
 
-<%= link_to "Browse some more!", homepage_path, class: "btn btn-primary" %>
+<%= link_to "Browse some more!", artworks_path, class: "btn btn-primary" %>
+
+<%= link_to "Show my appointments", appointments_path, class: "btn btn-primary" %>
