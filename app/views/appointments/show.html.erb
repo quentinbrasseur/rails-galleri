@@ -1,3 +1,16 @@
-<h1>Congratulations!  You just booked:</h1>
+<h1>Congratulations!</h1>
 
-<%= link_to "Home", homepage_path %>
+            <%= @appointment.user.email  %>  You just booked:
+            <br>
+            <%= @appointment.artwork.title  %>
+            <br>
+            <p>from:</p>
+             <%= @appointment.start_date  %>
+              <br>
+              <p>To:</p>
+              <%= @appointment.end_date  %>
+
+
+
+
+<%= link_to "Browse some more!", homepage_path, class: "btn btn-primary" %>
