@@ -33,18 +33,23 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = Appointment.find(params[:id])
-    redirect_to appointment_path(@appointment)
+
+    #redirect_to homepage_path(@appointment)
   end
 
   def update
+
     @appointment = Appointment.find(params[:id])
+    @appointment.update(appointment_params)
+
     redirect_to appointment_path(@appointment)
+
   end
 
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to homepage_path
+    redirect_to appointments_path
   end
 
    def appointment_params
