@@ -1,29 +1,40 @@
 <h1 class="text-center">Your appointment list</h1>
-
-<%= @appointments %>
-
-<div class="text-center padded">
-  <%= link_to "Create a appointment", new_appointment_path, class: "btn btn-primary" %>
-</div>
-
-<div class="container">
-  <div class="row">
-    <% @appointments.each do |appointment| %>
+ <% @appointments.each do |appointment| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
 
-          <% if appointment.picture %>
-            <div class="card-header" style="background-image: url('<%= image_path appointment.picture%>')">
-            </div>
-          <% else %>
-            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-appointment-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
-            </div>
-          <% end %>
+
           <div class="card-body">
-            <%= link_to appointment.name, appointment_path(appointment) %>
+
+<%= link_to appointment.artwork.title, appointment_path(appointment.id), class: "btn btn-primary" %>
+<br>
+            <%= appointment.user.email  %>!  You just booked:
+            <br>
+            <%= appointment.artwork.title  %>
+            <%= appointment.id  %>
+            <br>
+             <%= appointment.start_date  %>
+              <br>
+              <%= appointment.end_date  %>
+              <br>
+              <br>
+    <%= link_to "Delete Booking", appointment_path(appointment.id), class: "btn btn-primary",
+              method: :delete,
+              data: { confirm: "are you sure" } %></h3>
+         <%= link_to "Edit Booking", edit_appointment_path(appointment.id), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
+
+<br>
+<br>
+<div class="text-center padded">
+  <%= link_to "Browse some more!", homepage_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+
   </div>
 </div>

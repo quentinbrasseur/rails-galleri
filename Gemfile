@@ -21,6 +21,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'momentjs-rails', '>= 2.9.0'
 
 group :development, :test do
   gem 'binding_of_caller'
