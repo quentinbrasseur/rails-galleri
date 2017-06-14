@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
 
+  # To let the user upload photos
+  mount Attachinary::Engine => "/attachinary"
+
   resources :appointments, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     #resources :doses, only: [:new, :create]
   end
@@ -17,6 +20,6 @@ Rails.application.routes.draw do
   # Do you really need this one???
   get "homepage" , to: "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   get "search", to: 'artworks#search'
 end
-
