@@ -1,32 +1,91 @@
-<h1>Matching Search Results:</h1>
-
-
- <% @result.each do |result| %>
-
-
-      <div class="col-xs-12 col-sm-4">
-        <div class="card text-center">
-
-
-          <div class="card-body">
-
-<%= link_to "title", artwork_path(result[:id]), class: "btn btn-primary" %></h2>
-<br>
-Title:
-            <%= result[:title]  %>
-            <br>
-            Photo:
-
-            <%= result[:photo]  %>
-            <br>
-
-            Artist ID:
-            <%= result[:user_id]  %>
 
 
 
-          </div>
-        </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="row">
+      <h1>Here the search form as in home page </h1>
+
+ <div class="search-bar">
+    <form class="form-inline" action="/search" method="GET">
+      <label class="sr-only" for="inlineFormInput">City</label>
+      <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+
+      <label class="sr-only" for="inlineFormInputGroup">Art</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
       </div>
-    <% end %>
+
+      <label class="sr-only" for="inlineFormInputGroup">When</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
+      </div>
+      <input type="submit"  class="btn btn-primary" value="Search!">
+
+      <p></p>
+
+    </form>
+  </div>
+
+
+      <% @result.each do |result| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <%= link_to(artwork_path(result[:id]), style: 'text-decoration: none;') do %>
+          <div class="card-body" >
+          </div>
+
+          <div class="card-footer" >
+            <p><%= result[:title] %></p>
+            <p><%= result[:title] %></p>
+            <% if result[:user_id].present? %>
+            <h2><%= result[:user_id] %></h2>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+    <div id="map" style="width: 1000px; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
