@@ -11,13 +11,14 @@
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
-    
+
  def new
   @artwork = Artwork.new
 end
 
 def create
   @artwork = Artwork.new(artwork_params)
+  @artwork.user_id = current_user
   if @artwork.save
     redirect_to artwork_path(@artwork)
   else
