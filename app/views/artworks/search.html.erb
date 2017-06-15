@@ -1,0 +1,32 @@
+<h1>Matching Search Results:</h1>
+
+
+ <% @result.each do |result| %>
+
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="card text-center">
+
+
+          <div class="card-body">
+
+<%= link_to "title", artwork_path(result[:id]), class: "btn btn-primary" %></h2>
+<br>
+Title:
+            <%= result[:title]  %>
+            <br>
+            Photo:
+
+            <%= result[:photo]  %>
+            <br>
+
+            Artist ID:
+            <%= result[:user_id]  %>
+
+
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+

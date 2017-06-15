@@ -7,21 +7,21 @@
   </div>
 
   <div class="search-bar">
-    <form class="form-inline">
+    <form class="form-inline" action="/search" method="GET">
       <label class="sr-only" for="inlineFormInput">City</label>
-      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+      <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
 
       <label class="sr-only" for="inlineFormInputGroup">Art</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
+        <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
       </div>
 
       <label class="sr-only" for="inlineFormInputGroup">When</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="When">
+        <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
       </div>
+      <input type="submit"  class="btn btn-primary" value="Search!">
 
-      <button type="submit" class="btn btn-primary"><%= link_to "Artworks", search_path %></button>
       <p></p>
 
     </form>
