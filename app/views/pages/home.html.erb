@@ -6,26 +6,9 @@
     <p>and experience your favorite art for FREE</p>
   </div>
 
-  <div class="search-bar">
-    <form class="form-inline">
-      <label class="sr-only" for="inlineFormInput">City</label>
-      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+  <%= render 'form' %>
 
-      <label class="sr-only" for="inlineFormInputGroup">Art</label>
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
-      </div>
 
-      <label class="sr-only" for="inlineFormInputGroup">When</label>
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="When">
-      </div>
-
-      <button type="submit" class="btn btn-primary"><%= link_to "Artworks", search_path %></button>
-      <p></p>
-
-    </form>
-  </div>
 </div>
 
 <br>
