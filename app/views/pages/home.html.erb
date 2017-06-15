@@ -6,17 +6,6 @@
     <p>and experience your favorite art for FREE</p>
   </div>
 
-<!-- <div class="search-bar">
-
-    <form action="/artworks", method="get">
-      <input type="text" name="city">
-      <input type="text" name="type">`
-      <input type="text" name="start_request" class="datepicker">
-      <input type="text" name="end_request" class="datepicker">
-      <input type="submit" value="Find your artwork">
-    </form>
-
-  </div> -->
     <div class="search-bar">
       <%= simple_form_for @user, html: { class: "form-inline" }, method: :get do |f| %>
       <%= f.input :location_request, placeholder: "Location", collection: @location_request, label: false %>
@@ -26,7 +15,6 @@
       <%= f.button :submit, 'Search', class: "btn btn-success" %>
       <% end %>
     </div>`
-
 
 </div>
 
