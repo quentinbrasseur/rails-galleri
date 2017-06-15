@@ -18,7 +18,8 @@ end
 
 def create
   @artwork = Artwork.new(artwork_params)
-  @artwork.user_id = current_user
+  @artwork.owner = current_user
+
   if @artwork.save
     redirect_to artwork_path(@artwork)
   else
@@ -74,7 +75,8 @@ def search
            artwork[:id] = art.id
            artwork[:title] = art.title
            artwork[:photo] = art.photo
-           artwork[:user_id] = art.user_id
+
+           artwork[:artist] = art.owner.email #change to name if you don't wamt email
            @result << artwork
         end
 
