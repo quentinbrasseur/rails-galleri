@@ -11,13 +11,15 @@
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
-    
+
  def new
   @artwork = Artwork.new
 end
 
 def create
   @artwork = Artwork.new(artwork_params)
+  @artwork.owner = current_user
+
   if @artwork.save
     redirect_to artwork_path(@artwork)
   else
@@ -27,6 +29,12 @@ end
 
 def show
   @artwork = Artwork.find(params[:id])
+
+  @hash = Gmaps4rails.build_markers(@artwork) do |artwork, marker|
+      marker.lat artwork.latitude
+      marker.lng artwork.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
 end
 
 def edit
@@ -73,7 +81,8 @@ def search
            artwork[:id] = art.id
            artwork[:title] = art.title
            artwork[:photo] = art.photo
-           artwork[:user_id] = art.user_id
+
+           artwork[:artist] = art.owner.email #change to name if you don't wamt email
            @result << artwork
         end
 
