@@ -19,7 +19,7 @@
       <h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
       <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
       <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
-      <h2 class="text-center" ><%= @artwork.user_id %></h2>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
     </div>
   </div>
 </div>
@@ -35,6 +35,12 @@
 <% if @artwork.photo? %>
   <%= cl_image_tag @artwork.photo.path %>
 <% end %> -->
+
+<a href="" class="navbar-wagon-item navbar-wagon-link">
+  <div class="badge-container">
+      <%= link_to "Add Artwork", new_artwork_path, class: "btn btn-primary" %>
+  </div>
+</a>
 
 <hr class="icon-row-divider" data-reactid="285">
 
