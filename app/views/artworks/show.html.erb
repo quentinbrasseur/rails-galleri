@@ -1,16 +1,40 @@
-<img src="" alt="">
+<div class="container" class="container-padding">
+  <div class="row">
+    <div class="col-lg-12">
+
+<div class="banner">
+  <% if @artwork.photo? %>
+  <%= cl_image_tag @artwork.photo.path %>
+  <% end %>
+  <div class="banner-content">
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-8">
+      <h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
+      <h2 class="text-center" ><%= @artwork.user_id %></h2>
+    </div>
+  </div>
+</div>
 
 <hr class="icon-row-divider" data-reactid="285">
 
-<h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
+<!-- <h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
 <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
-
+ -->
+<!--
 <% if @artwork.photo? %>
-  <%= cl_image_tag @artwork.photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-
+  <%= cl_image_tag @artwork.photo.path %>
+<% end %> -->
 
 <hr class="icon-row-divider" data-reactid="285">
 
