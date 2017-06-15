@@ -5,11 +5,12 @@
             <%= @appointment.artwork.title  %>
             <br>
             <p>from:</p>
-             <%= @appointment.start_date  %>
+             <%= @appointment.start_date.strftime("%d %B %y") %>
               <br>
               <p>To:</p>
-              <%= @appointment.end_date  %>
-
+              <%= @appointment.end_date.strftime("%d %B %y")   %>
+              <br>
+              <br>
 
 <%= link_to "Modify this Appointment", edit_appointment_path, class: "btn btn-primary" %>
 

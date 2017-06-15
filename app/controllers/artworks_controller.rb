@@ -41,20 +41,26 @@ class ArtworksController < ApplicationController
     redirect_to artworks_path
   end
 
-  # def search
-  #   a = Artwork.all.map do |art|
-  #     #
-  #     rej = art.appointments.reject do |appointment|
-  #       booked = false
-  #       (appointment.start_date.to_date..appointment.end_date.to_date).each do |date|
-  #         booked = true if date.between?(Date.today  , Date.today + 5  )
-  #       end
-  #       booked
-  #     end
-  #     #
-  #   end
-  #   raise
-  # end
+  def search
+    @result = [ ]  #shows the results from the filter
+     Artwork.all.map do |art|
+      #
+      booked = false
+      art.appointments.each do |appointment|
+        (appointment.start_date.to_date..appointment.end_date.to_date).each do |date|
+          booked = true if date.between?(Date.today   , Date.today + 50  )
+        end
+      end
+      #
+      unless booked
+        artwork = {}
+        artwork[:title] = art.title
+        artwork[:photo] = art.photo
+        @result << artwork
+      end
+
+    end
+  end
 
   private
 

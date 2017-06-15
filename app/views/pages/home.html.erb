@@ -1,9 +1,9 @@
 <div class="banner" style="background-image: url(https://static.pexels.com/photos/428111/pexels-photo-428111.jpeg);">
 
   <div class="banner-content">
-    <h1>Art you space</h1>
-    <p>Show arts from local artist</p>
-    <p>and experience arts you like for FREE</p>
+    <h1>Artify your space</h1>
+    <p>Show artwork from local artists</p>
+    <p>and experience your favorite art for FREE</p>
   </div>
 
   <%= render 'form' %>
@@ -14,7 +14,8 @@
 <br>
 
 <div class="overview" style="text-align: center;">
-  <h2>Explore the art</h2>
+  <h2><div class="text-center padded">
+  <%= link_to "Explore the art", artworks_path, class: "btn btn-primary" %></h2>
 </div>
 
 <br>
