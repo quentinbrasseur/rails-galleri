@@ -42,7 +42,7 @@ class ArtworksController < ApplicationController
   end
 
   def search
-    @result = [ ]
+    @result = [ ]  #shows the results from the filter
      Artwork.all.map do |art|
       #
       booked = false
