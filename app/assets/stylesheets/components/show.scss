@@ -1,0 +1,27 @@
+.container{
+  width: 100vw;
+  margin-bottom: 20px;
+}
+
+.btn-book-show {
+  text-align: center;
+}
+
+
+.btn-book-show {
+  color: white;
+  padding: 10px 15px;
+  margin-top: 50px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.btn-book-show:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
