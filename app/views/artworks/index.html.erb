@@ -41,8 +41,9 @@
           <div class="card-footer" >
             <p><%= artwork.title %></p>
             <p><%= artwork.size %></p>
+
             <% if artwork.owner.present? %>
-            <h2><%= artwork.owner.name %></h2>
+            <h2>artist: <%= artwork.owner.email %></h2>
             <% end %>
           </div>
           <% end %>

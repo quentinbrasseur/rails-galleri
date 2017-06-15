@@ -6,6 +6,7 @@
 <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
+<h2 class="text-center" style="margin: 40px"><%= @artwork.owner.email %></h2>
 
 <% if @artwork.photo? %>
   <%= cl_image_tag @artwork.photo.path, width: 300, height: 200, crop: :fill %>
