@@ -6,8 +6,15 @@
     <p>and experience your favorite art for FREE</p>
   </div>
 
-  <%= render 'form' %>
-
+    <div class="search-bar">
+      <%= simple_form_for @user, html: { class: "form-inline" }, method: :get do |f| %>
+      <%= f.input :location_request, placeholder: "Location", collection: @location_request, label: false %>
+      <%= f.input :category_request, placeholder: "Category", collection: @category_request, label: false %>
+      <%= f.input :start_request, placeholder: "Start", collection: @start_request, label: false %>
+      <%= f.input :end_request, placeholder: "End", collection: @end_request, label: false %>
+      <%= f.button :submit, 'Search', class: "btn btn-success" %>
+      <% end %>
+    </div>`
 
 </div>
 
@@ -19,4 +26,7 @@
 </div>
 
 <br>
+
+
+
 
