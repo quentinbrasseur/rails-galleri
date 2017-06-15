@@ -2,7 +2,13 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @artworks = Artwork.all
+    @artworks = Artwork.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@artworks) do |artwork, marker|
+      marker.lat artwork.latitude
+      marker.lng artwork.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new
