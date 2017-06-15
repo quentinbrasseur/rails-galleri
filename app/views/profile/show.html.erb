@@ -24,13 +24,11 @@ Latest Search Location: <%= @user.location_request  %>
             <br>Confirmation code:
             <%= appointment.id  %>
             <br>
-             <%= appointment.start_date  %>
+             <%= appointment.start_date.strftime("%d %B %y")   %>
               <br>
-              <%= appointment.end_date  %>
-              <br> renter ID:
-              <%= appointment.user_id  %>
-              <br> Artist ID:
-              <%= appointment.artwork.user_id  %>
+              <%= appointment.end_date.strftime("%d %B %y")   %>
+                     <br> Artist Email:
+              <%= appointment.artwork.owner.email  %>
               <br>
 
               <br>

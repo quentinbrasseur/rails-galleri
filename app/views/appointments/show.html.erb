@@ -5,6 +5,7 @@
             <%= @appointment.artwork.title  %>
             <br>
             <p>from:</p>
+            <%= @appointment.artwork.owner.email  %>
              <%= @appointment.start_date.strftime("%d %B %y") %>
               <br>
               <p>To:</p>
