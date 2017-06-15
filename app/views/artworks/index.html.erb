@@ -1,23 +1,36 @@
-<h1 class="text-center" style="margin: 40px">My list of artworks</h1>
-
 <div class="container">
   <div class="row">
-    <% @artworks.each do |artwork| %>
-      <%= artwork.title %>
-      <%= artwork.id %>
-      <% if artwork.photo? %>
-        <%= cl_image_tag artwork.photo.path, width: 300, height: 200, crop: :fill %>
+    <div class="col-xs-12 col-md-8">
+      <div class="row">
+      <h1>Here the search form as in home page </h1>
+      <% @artworks.each do |artwork| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <%= link_to(artwork, style: 'text-decoration: none;') do %>
+          <div class="card-body" style="background-image: url('<%= cl_image_path(artwork.photo.path) %>'); height: 200px; width: 300px;">
+          </div>
+
+          <div class="card-footer" >
+            <p><%= artwork.title %></p>
+            <p><%= artwork.size %></p>
+            <% if artwork.owner.present? %>
+            <h2><%= artwork.owner.name %></h2>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
       <% end %>
-      <%= link_to "Details", artwork %>
-      <br>
-    <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+    <img src="https://unsplash.it/400/1000" alt="">
   </div>
 </div>
-<br>
-<br>
-
-<%= link_to "Home", homepage_path %>
-<%= link_to "Create", new_artwork_path %>
+</div>
 
 <div id="map" style="width: 1000px; height: 600px;"></div>
 
