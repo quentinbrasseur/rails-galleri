@@ -6,16 +6,29 @@
     <p>and experience your favorite art for FREE</p>
   </div>
 
-    <div class="search-bar">
-      <%= simple_form_for @user, html: { class: "form-inline" }, method: :get do |f| %>
-      <%= f.input :location_request, placeholder: "Location", collection: @location_request, label: false %>
-      <%= f.input :category_request, placeholder: "Category", collection: @category_request, label: false %>
-      <%= f.input :start_request, placeholder: "Start", collection: @start_request, label: false %>
-      <%= f.input :end_request, placeholder: "End", collection: @end_request, label: false %>
-      <%= f.button :submit, 'Search', class: "btn btn-success" %>
-      <% end %>
-    </div>`
 
+  <div class="search-bar">
+    <form class="form-inline" action="/search" method="GET">
+      <label class="sr-only" for="inlineFormInput">City</label>
+      <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+
+      <label class="sr-only" for="inlineFormInputGroup">Art</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
+      </div>
+
+      <label class="sr-only" for="inlineFormInputGroup">When</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
+      </div>
+      <input type="submit"  class="btn btn-primary" value="Search!">
+
+      <p></p>
+
+    </form>
+  </div>
+
+ 
 </div>
 
 <br>

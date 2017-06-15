@@ -2,6 +2,9 @@
 <h2 class="text-center" style="margin: 40px"><%= @user.last_name %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @user.email %></h2>
 <h2 class="text-center" style="margin: 40px"><%= @user.phone_number %></h2>
+Latest Search Location: <%= @user.location_request  %>
+            <br>
+            Latest Search Category: <%= @user.category_request  %>
 <h2 class="text-center" style="margin: 40px"><%= @user.address %></h2>
 <h1 class="text-center">Your appointment list</h1>
  <% @appointments.each do |appointment| %>
@@ -16,6 +19,7 @@
             Renter Email: <%= appointment.user.email  %>
             <br>
 
+            <br>
             <%= link_to appointment.artwork.title, appointment_path(appointment.id) %>
             <br>Confirmation code:
             <%= appointment.id  %>
