@@ -35,7 +35,12 @@
       <div class="col-xs-12 col-md-6">
         <div class="card">
           <%= link_to(artwork, style: 'text-decoration: none;') do %>
-          <div class="card-body" style="background-image: url('<%= cl_image_path(artwork.photo.path) %>'); height: 200px; width: 300px;">
+          <% if artwork.photo %>
+            <% image =  artwork.photo.path %>
+          <% else  %>
+            <% image =  "https://unsplash.com/?photo=-LRuNvY8W7Q" %>
+          <% end %>
+          <div class="card-body" style="background-image: url('<%= cl_image_path(image) %>'); height: 200px; width: 300px;">
           </div>
 
           <div class="card-footer" >
