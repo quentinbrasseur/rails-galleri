@@ -22,23 +22,70 @@
       </div>
       <input type="submit"  class="btn btn-primary" value="Search!">
 
-      <p></p>
-
     </form>
   </div>
-
-
 </div>
 
-<br>
 
-<div class="overview" style="text-align: center;">
-  <h2><div class="text-center padded">
-  <%= link_to "Explore the art", artworks_path, class: "btn btn-primary" %></h2>
+<div class="overview" style="text-align: center; ">
+
+  <div class="text-center padded">
+    <h2><%= link_to "Explore the art", artworks_path, class: "btn btn-primary" %></h2>
+  </div>
+
+  <div class="cards-overview">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Paint" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Object" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Photopgraphy" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Sculpture" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Paint" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= link_to(artworks_path, style: 'text-decoration: none;') do %>
+              <img src="" alt="Whatever" style="width:100%">
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<br>
 
 
+<!-- http://www.peintures-sur-toile.com/images/Image/HS3420_1340004251.JPG -->
 
 
