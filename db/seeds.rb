@@ -12,28 +12,28 @@ Artwork.destroy_all
 User.destroy_all
 
 quentin = User.new(
-  name: "quentin",
+  name: "Quentin",
   email: "quentin@quentin.com",
   password: "password",
   phone_number: "06 16 28 83 97")
 quentin.save!
 
 kilian = User.new(
-  name: "kilian",
+  name: "Kilian",
   email: "kilian@kilian.com",
   password: "password",
   phone_number: "06 19 20 13 37")
 kilian.save!
 
 cedric = User.new(
-  name: "cedric",
+  name: "Cedric",
   email: "cedric@cedric.com",
   password: "password",
   phone_number: "06 10 22 93 90")
 cedric.save!
 
 joe = User.new(
-  name: "joe",
+  name: "Joe",
   email: "joe@joe.com",
   password: "password",
   phone_number: "06 06 20 81 37")
@@ -43,21 +43,21 @@ mona_lisa = Artwork.new(
   title: 'Mona Lisa',
   category: 'Old school',
   size: "50x50",
-  location: "Gracia",
+  location: "Madrid",
   user_id: quentin.id)
 
 king_kong = Artwork.new(
   title: 'King Kong',
   category: 'Pop Art',
   size: "100x50",
-  location: "Sagrada",
+  location: "Sevilla",
   user_id: cedric.id)
 
 barcelona = Artwork.new(
   title: 'Barcelona',
   category: 'Landscape',
   size: "200x200",
-  location: "Poblenou",
+  location: "Barcelona",
   user_id: kilian.id
   )
 
@@ -65,7 +65,7 @@ fruits = Artwork.new(
   title: 'Fruits',
   category: 'Nature morte',
   size: "20x20",
-  location: "Raval",
+  location: "Bilbao",
   user_id: joe.id
   )
 
