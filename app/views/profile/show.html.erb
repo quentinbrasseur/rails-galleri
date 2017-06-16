@@ -1,47 +1,75 @@
-<h1 class="text-center" style="margin: 40px"><%= @user.first_name %></h1>
-<h2 class="text-center" style="margin: 40px"><%= @user.last_name %></h2>
-<h2 class="text-center" style="margin: 40px"><%= @user.email %></h2>
-<h2 class="text-center" style="margin: 40px"><%= @user.phone_number %></h2>
-Latest Search Location: <%= @user.location_request  %>
-            <br>
-            Latest Search Category: <%= @user.category_request  %>
-<h2 class="text-center" style="margin: 40px"><%= @user.address %></h2>
-<h1 class="text-center">Your appointment list</h1>
- <% @appointments.each do |appointment| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card text-center">
-
-
-          <div class="card-body">
-
-<%= link_to appointment.artwork.title, appointment_path(appointment.id), class: "btn btn-primary" %>
 <br>
-            Renter Email: <%= appointment.user.email  %>
-            <br>
+<div class="container">
+  <div class="row">
 
-            <br>
-            <%= link_to appointment.artwork.title, appointment_path(appointment.id) %>
-            <br>Confirmation code:
-            <%= appointment.id  %>
-            <br>
-             <%= appointment.start_date.strftime("%d %B %y")   %>
+    <div class="col-xs-6 col-xs-offset-3 ">
+      <div class="row">
+        <div class="col-xs-6 col-sm-4">
+            <div class="avatar-image" ">
+              <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", style: "width: 100px; display: block; margin: 0 auto;" %>
+              </div>
+              <div class="avatar-edit" style="text-align: center;">
+                <%= link_to "Edit", edit_user_path, style: "text-decoration: none; font-size:14px;"%>
+              </div>
+        </div>
+        <div class="col-xs-6 col-sm-4">
+          <div class="avatar-information">
+            <p class="text-center" style="margin: 40px">
+              <%= @user.first_name %>
+              <%= @user.last_name %>
               <br>
-              <%= appointment.end_date.strftime("%d %B %y")   %>
-                     <br> Artist Email:
-              <%= appointment.artwork.owner.email  %>
-              <br>
-
-              <br>
-    <%= link_to "Delete Booking", appointment_path(appointment.id), class: "btn btn-primary",
-              method: :delete,
-              data: { confirm: "are you sure" } %></h3>
-         <%= link_to "Edit Booking", edit_appointment_path(appointment.id), class: "btn btn-primary" %>
+              <%= @user.email %>
+              <%= @user.phone_number %>
+              <%= @user.address %>
+            </p>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
+  </div>
+</div>
 
-<br>
-<br>
-<%= link_to "Edit", edit_user_path %>
-<%= link_to "Show My Bookings!!", appointments_path %>
+<div class="class container">
+
+  <% @appointments.each do |appointment| %>
+  <div class="col-xs-12 col-sm-4">
+    <div class="card text-center">
+
+
+      <div class="card-body">
+
+        <%= link_to appointment.artwork.title, appointment_path(appointment.id), class: "btn btn-primary" %>
+        <br>
+        Renter Email: <%= appointment.user.email  %>
+        <br>
+
+        <br>
+        <%= link_to appointment.artwork.title, appointment_path(appointment.id) %>
+        <br>Confirmation code:
+        <%= appointment.id  %>
+        <br>
+        <%= appointment.start_date.strftime("%d %B %y")   %>
+        <br>
+        <%= appointment.end_date.strftime("%d %B %y")   %>
+        <br> Artist Email:
+        <%= appointment.artwork.owner.email  %>
+        <br>
+
+        <br>
+        <%= link_to "Delete Booking", appointment_path(appointment.id), class: "btn btn-primary",
+        method: :delete,
+        data: { confirm: "are you sure" } %></h3>
+        <%= link_to "Edit Booking", edit_appointment_path(appointment.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <br>
+  <br>
+  <%= link_to "My booking", appointments_path %>
+  <%= link_to "My arts", "" %>
+
+</div>
+

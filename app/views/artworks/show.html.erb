@@ -12,17 +12,16 @@
   <div class="row">
 
     <div class="col-xs-12 col-lg-8">
-      <h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
-      <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
-      <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
-      <h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
+      <p class="text-center" style="margin: 40px"><%= @artwork.title %></p>
+      <p class="text-center" style="margin: 40px"><%= @artwork.size %></p>
+      <p class="text-center" style="margin: 40px"><%= @artwork.location %></p>
+      <p class="text-center" style="margin: 40px"><%= @artwork.user_id %></p>
       <h3>Description:</h3>
       <%= link_to "Edit", edit_artwork_path(@artwork), class: "btn-book-show" %>
       <%= link_to "Delete", artwork_path(@artwork), method: :delete, data: { confirm: "Are you sure?"}, class: "btn-book-show" %>
       <%= link_to "Book This Artwork!", new_artwork_appointment_path(@artwork), class: "btn-book-show" %>
     </div>
-<!--    <div class="col-xs-12 col-lg-2">
-    </div>  -->
+
     <div class="col-xs-12 col-lg-4">
       <div id="map" style="width: 400px; height: 350px;">
 

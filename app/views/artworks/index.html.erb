@@ -1,88 +1,81 @@
-
+<br>
+<br>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <div class="row">
-      <h1>Here the search form as in home page </h1>
+        <div class="search-bar">
+          <form class="form-inline" action="/search" method="GET">
+            <label class="sr-only" for="inlineFormInput">City</label>
+            <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
 
- <div class="search-bar">
-    <form class="form-inline" action="/search" method="GET">
-      <label class="sr-only" for="inlineFormInput">City</label>
-      <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+            <label class="sr-only" for="inlineFormInputGroup">Art</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
+            </div>
 
-      <label class="sr-only" for="inlineFormInputGroup">Art</label>
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
-      </div>
+            <label class="sr-only" for="inlineFormInputGroup">When</label>
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
+            </div>
+            <input type="submit"  class="btn btn-primary" value="Search!">
 
-      <label class="sr-only" for="inlineFormInputGroup">When</label>
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
-      </div>
-      <input type="submit"  class="btn btn-primary" value="Search!">
+            <p></p>
 
-      <p></p>
-
-    </form>
-  </div>
-#####################################
-
-
-
-#############################
-
-      <% @artworks.each do |artwork| %>
-      <div class="col-xs-12 col-md-6">
-        <div class="card">
-          <%= link_to(artwork, style: 'text-decoration: none;') do %>
-          <% if artwork.photo %>
+          </form>
+        </div>
+        <br>
+        <br>
+        <% @artworks.each do |artwork| %>
+        <div class="col-xs-12 col-md-6">
+          <div class="card">
+            <%= link_to(artwork, style: 'text-decoration: none;') do %>
+            <% if artwork.photo %>
             <% image =  artwork.photo.path %>
-          <% else  %>
+            <% else  %>
             <% image =  "https://unsplash.com/?photo=-LRuNvY8W7Q" %>
-          <% end %>
-          <div class="card-body" style="background-image: url('<%= cl_image_path(image) %>'); height: 200px; width: 300px;">
-          </div>
+            <% end %>
+            <div class="card-body" style="background-image: url('<%= cl_image_path(image) %>'); height: 200px; width: 300px;">
+            </div>
 
-          <div class="card-footer" >
-            <p><%= artwork.title %></p>
-            <p><%= artwork.size %></p>
-
-            <% if artwork.owner.present? %>
-            <h2>artist: <%= artwork.owner.email %></h2>
+            <div class="card-footer" >
+              <p>"<%= artwork.title %>"</p>
+              <% if artwork.owner.present? %>
+              <p> <em> by <%= artwork.owner.name %></em></p>
+              <% end %>
+            </div>
             <% end %>
           </div>
-          <% end %>
-        </div>
 
+        </div>
+        <% end %>
       </div>
-      <% end %>
+
     </div>
 
-  </div>
+    <div class="col-xs-6 col-md-4">
 
-  <div class="col-xs-6 col-md-4">
+      <div id="map" style="width: 1000px; height: 600px;"></div>
 
-  <div id="map" style="width: 1000px; height: 600px;"></div>
-
-    <% content_for(:after_js) do %>
+      <% content_for(:after_js) do %>
       <%= javascript_tag do %>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
-            }
-          });
-        });
-      <% end %>
-    <% end %>
+      $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+    handler.getMap().setZoom(14);
+  }
+});
+});
+<% end %>
+<% end %>
 
-  </div>
+</div>
 </div>
 </div>
 
