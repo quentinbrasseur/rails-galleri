@@ -1,0 +1,63 @@
+.profile-header-wrapper {
+  background: #53443F;
+}
+.profile-header-container img {
+  width: 100px;
+  border-radius: 50%;
+}
+.profile-header-container h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.profile-header-container h2 {
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+.profile-header-infos {
+  padding: 20px 0;
+}
+
+.tabs {
+  background: white;
+  display: flex;
+  padding: 0px 19px 0 353px
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background: #756A66;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: 15px 0;
+}
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+.tab.active {
+  background: #756A66;
+  color: black;
+}
