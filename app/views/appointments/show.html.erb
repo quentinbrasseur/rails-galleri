@@ -1,6 +1,6 @@
-<h1>Congratulations!</h1>
+<h1 class="text-center">Congratulations <%= @appointment.user.first_name %>!</h1>
 
-            <%= @appointment.user.email  %>  You just booked:
+            You booked:
             <br>
             <%= @appointment.artwork.title  %>
             <br>
