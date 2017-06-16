@@ -1,21 +1,75 @@
-<img src="" alt="">
+
+
+<div class="banner banner-artwork">
+  <% if @artwork.photo? %>
+  <%= cl_image_tag @artwork.photo.path %>
+  <% end %>
+  <div class="banner-content">
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-lg-8">
+      <h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
+      <h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
+      <h3>Description:</h3>
+      <%= link_to "Edit", edit_artwork_path(@artwork), class: "btn-book-show" %>
+      <%= link_to "Delete", artwork_path(@artwork), method: :delete, data: { confirm: "Are you sure?"}, class: "btn-book-show" %>
+      <%= link_to "Book This Artwork!", new_artwork_appointment_path(@artwork), class: "btn-book-show" %>
+    </div>
+<!--    <div class="col-xs-12 col-lg-2">
+    </div>  -->
+    <div class="col-xs-12 col-lg-4">
+      <div id="map" style="width: 400px; height: 350px;">
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div style="margin-top: 20px,">
+
+      </div>
+
+<br>
+
+
+
 
 <hr class="icon-row-divider" data-reactid="285">
 
-<h1 class="text-center" style="margin: 40px"><%= @artwork.title %></h1>
-<h2 class="text-center" style="margin: 40px"><%= @artwork.size %></h2>
-<h2 class="text-center" style="margin: 40px"><%= @artwork.location %></h2>
-<h2 class="text-center" style="margin: 40px"><%= @artwork.user_id %></h2>
 
-<% if @artwork.photo? %>
-  <%= cl_image_tag @artwork.photo.path, width: 300, height: 200, crop: :fill %>
+
+<hr class="icon-row-divider" data-reactid="285">
+
+<div class="container" class="container-padding">
+  <div class="row">
+    <div class="col-lg-12">
+</div>
+</div>
+</div>
+
+  <%= link_to "Back", artworks_path %>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
 <% end %>
 
-
-<hr class="icon-row-divider" data-reactid="285">
-
-
-  <%= link_to "Edit", edit_artwork_path(@artwork) %>
-  <%= link_to "Delete", artwork_path(@artwork), method: :delete, data: { confirm: "Are you sure?"} %>
-  <%= link_to "Back", artworks_path(@artwork) %>
-<%= link_to "Book This Artwork!", new_artwork_appointment_path(@artwork) %>

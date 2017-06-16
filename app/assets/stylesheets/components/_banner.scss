@@ -1,10 +1,30 @@
 .banner {
   background-size: cover;
-  height: 40vh;
-  margin-top: 0px;
+  height: 90vh;
+  margin-top: -20px;
   display: block;
-}
+
 
 .banner-content {
   color: white;
 }
+
+.banner h1 {
+  font-size: 50px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  padding-top: 189px;
+}
+
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 50px;
+  }
+
+.search-bar {
+    text-align: center;
+  }
+
+#dateRange {
+  width: 212px
