@@ -67,17 +67,17 @@ class ArtworksController < ApplicationController
      @barcelona = {city: "Barcelona", category: "Miscellaneous", range: "06/16/2050 - 06/16/2051"}
      test = params[:test].to_i
 
-     if test == 0
+     if test == 1
       @result = Artwork.where(category: @paintings[:category])
-    elsif test == 1
-      @result = Artwork.where(category: @drawings[:category])
     elsif test == 2
-      @result = Artwork.where(category: @photography[:category])
+      @result = Artwork.where(category: @drawings[:category])
     elsif test == 3
-      @result = Artwork.where(category: @sculptures[:category])
+      @result = Artwork.where(category: @photography[:category])
     elsif test == 4
-      @result = Artwork.where(category: @performances[:category])
+      @result = Artwork.where(category: @sculptures[:category])
     elsif test == 5
+      @result = Artwork.where(category: @performances[:category])
+    elsif test == 6
       @result = Artwork.where(location: @barcelona[:city])
     else
       @search = Artwork.where(category: params[:category], location: params[:city])
