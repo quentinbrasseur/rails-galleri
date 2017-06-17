@@ -1,194 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Filterizr Use Case</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filterizr Use Case</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/assets/stylsheets/pages/_index.scss">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app/assets/stylsheets/pages/_index.scss">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-<br>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8">
-      <div class="row">
-        <div class="search-bar">
-          <form class="form-inline" action="/search" method="GET">
-            <label class="sr-only" for="inlineFormInput">City</label>
-            <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
-
-            <label class="sr-only" for="inlineFormInputGroup">Art</label>
-            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-              <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
-            </div>
-
-            <label class="sr-only" for="inlineFormInputGroup">When</label>
-            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-              <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
-            </div>
-            <input type="submit"  class="btn btn-primary" value="Search!">
-
-            <p></p>
-
-          </form>
-        </div>
-        <br>
-
-
-<div class="container">
-        <!-- Filter Controls - Simple Mode -->
+      <![endif]-->
+    </head>
+    <body>
+      <br>
+      <br>
+      <div class="container">
         <div class="row">
+          <div class="col-xs-12 col-md-8">
+            <div class="row">
+              <div class="search-bar">
+                <form class="form-inline" action="/search" method="GET">
+                  <label class="sr-only" for="inlineFormInput">City</label>
+                  <input name="city" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Barcelona">
+
+                  <label class="sr-only" for="inlineFormInputGroup">Art</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input name="category" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Paint">
+                  </div>
+
+                  <label class="sr-only" for="inlineFormInputGroup">When</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input name="date_range" type="text" class="form-control" id="dateRange" placeholder="When">
+                  </div>
+                  <input type="submit"  class="btn btn-primary" value="Search!">
+
+                  <p></p>
+
+                </form>
+              </div>
+              <br>
+
+
+              <div class="container">
+                <!-- Filter Controls - Simple Mode -->
+                <div class="row">
             <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
             for an unfiltered gallery and then the values of your categories to filter between them -->
             <ul class="simplefilter">
-                Simple filter controls:
-                <li class="active" data-filter="all">All</li>
-                <li data-filter="1">Cityscape</li>
-                <li data-filter="2">Landscape</li>
-                <li data-filter="3">Industrial</li>
-                <li data-filter="4">Daylight</li>
-                <li data-filter="5">Nightscape</li>
+              Simple filter controls:
+              <li class="active" data-filter="all">All</li>
+              <li data-filter="21">Painting</li>
+              <li data-filter="22">Drawing</li>
+              <li data-filter="23">Sculpture</li>
+              <li data-filter="16">Miscellaneous</li>
+              <li data-filter="15">Nightscape</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Filter Controls - Multifilter Mode -->
-        <div class="row">
+          <!-- Filter Controls - Multifilter Mode -->
+          <div class="row">
             <!-- A basic setup of multifilter controls, when the user toggles a category
             the corresponding items are rendered or hidden -->
             <ul class="multifilter">
-                Multifilter controls:
-                <li data-multifilter="1">Cityscape</li>
-                <li data-multifilter="2">Landscape</li>
-                <li data-multifilter="3">Industrial</li>
+              Multifilter controls:
+              <li data-multifilter="1">Painting</li>
+              <li data-multifilter="2">Drawing</li>
+              <li data-multifilter="3">Sculpture</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Shuffle & Sort Controls -->
-        <div class="row">
+          <!-- Shuffle & Sort Controls -->
+          <div class="row">
             <ul class="sortandshuffle">
-                Sort &amp; Shuffle controls:
-                <!-- Basic shuffle control -->
-                <li class="shuffle-btn" data-shuffle>Shuffle</li>
-                <!-- Basic sort controls consisting of asc/desc button and a select -->
-                <li class="sort-btn active" data-sortAsc>Asc</li>
-                <li class="sort-btn" data-sortDesc>Desc</li>
-                <select data-sortOrder>
-                    <option value="domIndex">
-                        Position
-                    </option>
-                    <option value="sortData">
-                        Description
-                    </option>
-                </select>
+              Sort &amp; Shuffle controls:
+              <!-- Basic shuffle control -->
+              <li class="shuffle-btn" data-shuffle>Shuffle</li>
+              <!-- Basic sort controls consisting of asc/desc button and a select -->
+              <li class="sort-btn active" data-sortAsc>Asc</li>
+              <li class="sort-btn" data-sortDesc>Desc</li>
+              <select data-sortOrder>
+                <option value="domIndex">
+                  Position
+                </option>
+                <option value="sortData">
+                  Description
+                </option>
+              </select>
             </ul>
-        </div>
+          </div>
 
-        <!-- Search control -->
-        <div class="row search-row">
+          <!-- Search control -->
+          <div class="row search-row">
             Search control:
             <input type="text" class="filtr-search" name="filtr-search" data-search>
-        </div>
+          </div>
 
-        <div class="row">
+          <div class="row">
             <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
             attribute, which starts from the value 1 and goes up from there -->
             <div class="filtr-container">
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Busy streets">
-                    <img class="img-responsive" src="img/city_1.jpg" alt="sample image">
-                    <span class="item-desc">Busy Streets</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Luminous night">
-                    <img class="img-responsive" src="img/nature_2.jpg" alt="sample image">
-                    <span class="item-desc">Luminous night</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="City wonders">
-                    <img class="img-responsive" src="img/city_3.jpg" alt="sample image">
-                    <span class="item-desc">city wonders</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="In production">
-                    <img class="img-responsive" src="img/industrial_1.jpg" alt="sample image">
-                    <span class="item-desc">in production</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Industrial site">
-                    <img class="img-responsive" src="img/industrial_2.jpg" alt="sample image">
-                    <span class="item-desc">industrial site</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Peaceful lake">
-                    <img class="img-responsive" src="img/nature_1.jpg" alt="sample image">
-                    <span class="item-desc">peaceful lake</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="City lights">
-                    <img class="img-responsive" src="img/city_2.jpg" alt="sample image">
-                    <span class="item-desc">city lights</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Dreamhouse">
-                    <img class="img-responsive" src="img/nature_3.jpg" alt="sample image">
-                    <span class="item-desc">dreamhouse</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="Restless machines">
-                    <img class="img-responsive" src="img/industrial_3.jpg" alt="sample image">
-                    <span class="item-desc">restless machines</span>
-                </div>
+              ####Insert Loop Top
+              <% @artworks.each do |artwork| %>
+              <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<%= artwork.id %>" data-sort=" <%= artwork.category %> ">
+
+                <%= link_to(artwork, style: 'text-decoration: none;') do %>
+                <% if artwork.photo %>
+                <% image =  artwork.photo.path %>
+                <% else  %>
+                <% image =  "https://unsplash.com/?photo=-LRuNvY8W7Q" %>
+                <% end %>
+                <img class="img-responsive" src="<%= cl_image_path(image) %>" alt="sample image">
+                <span class="item-desc"> <%= artwork.title  %> <br> By: <%= artwork.owner.email %> <br> cat: <%= artwork.location %> </span>
+              </div>
+              <% end %>
+
+              <% end %>
+              ####End loop
+
             </div>
+          </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
         <br>
-        <% @artworks.each do |artwork| %>
-        <div class="col-xs-12 col-md-6">
-          <div class="card">
-            <%= link_to(artwork, style: 'text-decoration: none;') do %>
-            <% if artwork.photo %>
-            <% image =  artwork.photo.path %>
-            <% else  %>
-            <% image =  "https://unsplash.com/?photo=-LRuNvY8W7Q" %>
-            <% end %>
-            <div class="card-body" style="background-image: url('<%= cl_image_path(image) %>'); height: 200px; width: 300px;">
-            </div>
 
-            <div class="card-footer" >
-              <p>"<%= artwork.title %>"</p>
-              <% if artwork.owner.present? %>
-              <p> <em> by <%= artwork.owner.name %></em></p>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
-
-        </div>
-        <% end %>
       </div>
 
     </div>
 
     <div class="col-xs-6 col-md-4">
 
-      <div id="map" style="width: 1000px; height: 600px;"></div>
+      <div id="map" style="width: 500px; height: 600px;"></div>
 
       <% content_for(:after_js) do %>
       <%= javascript_tag do %>
@@ -213,17 +161,17 @@
 </div>
 
 
- <!-- Include jQuery & Filterizr -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/filterizr/jquery.filterizr.min.js"></script>
+<!-- Include jQuery & Filterizr -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/filterizr/jquery.filterizr.min.js"></script>
 
 
-    <!-- Kick off Filterizr -->
-    <script type="text/javascript">
-        $(function() {
+<!-- Kick off Filterizr -->
+<script type="text/javascript">
+  $(function() {
             //Initialize filterizr with default options
             $('.filtr-container').filterizr();
-        });
-    </script>
- </body>
-</html>
+          });
+        </script>
+      </body>
+      </html>
