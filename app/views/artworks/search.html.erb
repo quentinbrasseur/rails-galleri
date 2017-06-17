@@ -35,10 +35,12 @@
           </div>
 
           <div class="card-footer" >
-            <p><%= result[:title] %></p>
-            <p><%= result[:title] %></p>
+            <h2><%= result[:title] %></h2>
+            <br>
+            <p><%= result[:photo] %></p>
+            <br>
             <% if result[:artist].present? %>
-            <h2><%= result[:artist] %></h2>
+            <p><%= result[:artist] %></p>
             <% end %>
           </div>
           <% end %>
