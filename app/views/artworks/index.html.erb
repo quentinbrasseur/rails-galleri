@@ -52,7 +52,7 @@
             <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
             for an unfiltered gallery and then the values of your categories to filter between them -->
             <ul class="simplefilter">
-              Simple filter controls:
+              Individual Art Filters:
               <li class="active" data-filter="all">All</li>
               <li data-filter= 1 >Painting</li>
               <li data-filter= 2 >Drawing</li>
@@ -106,6 +106,7 @@
           <div class="row">
             <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
             attribute, which starts from the value 1 and goes up from there -->
+           <div class="container">
             <div class="filtr-container">
 
               <%= @cat = 0  %>
@@ -125,7 +126,7 @@
                   <%= @cat = 6 %>
                 <% end %>
 
-              <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<%= @cat %>" data-sort=" <%= artwork.category %> ">
+              <div class="col-xs-6 col-sm-4 col-md-3 filtr-item card" data-category="<%= @cat %>" data-sort=" <%= artwork.category %> ">
 
                 <%= link_to(artwork, style: 'text-decoration: none;') do %>
                 <% if artwork.photo %>
@@ -142,6 +143,7 @@
 
 
             </div>
+
           </div>
         </div>
 
@@ -178,6 +180,7 @@
 </div>
 </div>
 </div>
+</div>
 
 
 <!-- Include jQuery & Filterizr -->
@@ -189,7 +192,7 @@
 <script type="text/javascript">
   $(function() {
             //Initialize filterizr with default options
-            $('.filtr-container').filterizr();
+            $('.filtr-container').filterizr('setOptions', { delay: 80, delayMode: 'progressive' });
           });
         </script>
       </body>
