@@ -54,11 +54,12 @@
             <ul class="simplefilter">
               Simple filter controls:
               <li class="active" data-filter="all">All</li>
-              <li data-filter="21">Painting</li>
-              <li data-filter="22">Drawing</li>
-              <li data-filter="23">Sculpture</li>
-              <li data-filter="16">Miscellaneous</li>
-              <li data-filter="15">Nightscape</li>
+              <li data-filter= 1 >Painting</li>
+              <li data-filter= 2 >Drawing</li>
+              <li data-filter= 3 >Sculpture</li>
+              <li data-filter= 4 >Photography</li>
+              <li data-filter= 5 >Installations</li>
+              <li data-filter= 5 >Miscellaneous</li>
             </ul>
           </div>
 
@@ -67,10 +68,13 @@
             <!-- A basic setup of multifilter controls, when the user toggles a category
             the corresponding items are rendered or hidden -->
             <ul class="multifilter">
-              Multifilter controls:
-              <li data-multifilter="1">Painting</li>
-              <li data-multifilter="2">Drawing</li>
-              <li data-multifilter="3">Sculpture</li>
+             Toggle Multiple Types of Artwork:
+              <li data-multifilter= 1 >Paintings</li>
+              <li data-multifilter= 2 >Drawings</li>
+              <li data-multifilter= 3 >Sculptures</li>
+              <li data-multifilter= 4 >Photography</li>
+              <li data-multifilter= 5 >Installations</li>
+              <li data-multifilter= 6 >Miscellaneous</li>
             </ul>
           </div>
 
@@ -96,17 +100,32 @@
 
           <!-- Search control -->
           <div class="row search-row">
-            Search control:
-            <input type="text" class="filtr-search" name="filtr-search" data-search>
+                <input type="text" class="filtr-search" name="filtr-search" data-search placeholder="Enter A City">
           </div>
 
           <div class="row">
             <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
             attribute, which starts from the value 1 and goes up from there -->
             <div class="filtr-container">
-              ####Insert Loop Top
+
+              <%= @cat = 0  %>
+
               <% @artworks.each do |artwork| %>
-              <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<%= artwork.id %>" data-sort=" <%= artwork.category %> ">
+                <% if artwork.category == "Painting" %>
+                  <%= @cat = 1 %>
+                  <% elsif artwork.category == "Drawing"%>
+                  <%= @cat = 2 %>
+                  <% elsif artwork.category == "Sculpture"%>
+                  <%= @cat = 3 %>
+                  <% elsif artwork.category == "Photography"%>
+                  <%= @cat = 4 %>
+                  <% elsif artwork.category == "Installation"%>
+                  <%= @cat = 5 %>
+                  <% else %>
+                  <%= @cat = 6 %>
+                <% end %>
+
+              <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<%= @cat %>" data-sort=" <%= artwork.category %> ">
 
                 <%= link_to(artwork, style: 'text-decoration: none;') do %>
                 <% if artwork.photo %>
@@ -115,12 +134,12 @@
                 <% image =  "https://unsplash.com/?photo=-LRuNvY8W7Q" %>
                 <% end %>
                 <img class="img-responsive" src="<%= cl_image_path(image) %>" alt="sample image">
-                <span class="item-desc"> <%= artwork.title  %> <br> By: <%= artwork.owner.email %> <br> cat: <%= artwork.location %> </span>
+                <span class="item-desc"> <%= artwork.title  %> <br> cat: <%= artwork.category %> <br> loc: <%= artwork.location %> </span>
               </div>
               <% end %>
 
               <% end %>
-              ####End loop
+
 
             </div>
           </div>
